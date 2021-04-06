@@ -2,10 +2,16 @@ import os
 import sys
 import csv
 import time
+import json
+import glob
+import requests
+import tarfile
+
 from dateutil import parser as date_parser
 from chatterbot.conversation import Statement
 from chatterbot.tagging import PosLemmaTagger
 from chatterbot import utils
+from chatterbot.corpus import load_corpus, list_corpus_files
 
 
 class Trainer(object):
@@ -68,7 +74,7 @@ class Trainer(object):
         Create a file from the database that can be used to
         train other chat bots.
         """
-        import json
+
         export = {'conversations': self._generate_export_data()}
         with open(file_path, 'w+', encoding='utf8') as jsonfile:
             json.dump(export, jsonfile, ensure_ascii=False)
@@ -124,7 +130,7 @@ class ChatterBotCorpusTrainer(Trainer):
     """
 
     def train(self, *corpus_paths):
-        from chatterbot.corpus import load_corpus, list_corpus_files
+
 
         data_file_paths = []
 
@@ -227,7 +233,7 @@ class UbuntuCorpusTrainer(Trainer):
         Show a progress indicator for the download status.
         Based on: http://stackoverflow.com/a/15645088/1547223
         """
-        import requests
+
 
         file_name = url.split('/')[-1]
         file_path = os.path.join(self.data_directory, file_name)
@@ -265,7 +271,7 @@ class UbuntuCorpusTrainer(Trainer):
         """
         Extract a tar file at the specified file path.
         """
-        import tarfile
+
 
         print('Extracting {}'.format(file_path))
 
@@ -286,7 +292,7 @@ class UbuntuCorpusTrainer(Trainer):
         return True
 
     def train(self):
-        import glob
+
 
         tagger = PosLemmaTagger(language=self.chatbot.storage.tagger.language)
 

@@ -1,3 +1,4 @@
+from mathparse import mathparse
 from chatterbot.logic import LogicAdapter
 from chatterbot.conversation import Statement
 from chatterbot import languages
@@ -39,7 +40,6 @@ class MathematicalEvaluation(LogicAdapter):
         Takes a statement string.
         Returns the equation from the statement with the mathematical terms solved.
         """
-        from mathparse import mathparse
 
         input_text = statement.text
 

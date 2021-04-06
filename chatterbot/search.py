@@ -1,3 +1,6 @@
+from chatterbot.comparisons import LevenshteinDistance
+
+
 class IndexedTextSearch:
     """
     :param statement_comparison_function: A comparison class.
@@ -11,7 +14,7 @@ class IndexedTextSearch:
     name = 'indexed_text_search'
 
     def __init__(self, chatbot, **kwargs):
-        from chatterbot.comparisons import LevenshteinDistance
+
 
         self.chatbot = chatbot
 
@@ -97,7 +100,7 @@ class TextSearch:
     name = 'text_search'
 
     def __init__(self, chatbot, **kwargs):
-        from chatterbot.comparisons import LevenshteinDistance
+
 
         self.chatbot = chatbot
 

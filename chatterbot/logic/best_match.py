@@ -77,6 +77,7 @@ class BestMatch(LogicAdapter):
             self.chatbot.logger.info('No responses found. Generating alternate response list.')
             alternate_response_list = list(self.chatbot.storage.filter(**alternate_response_selection_parameters))
 
+
         if response_list:
             self.chatbot.logger.info(
                 'Selecting response from {} optimal responses.'.format(

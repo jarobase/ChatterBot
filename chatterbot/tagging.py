@@ -1,6 +1,6 @@
 import string
 from chatterbot import languages
-
+import spacy
 
 class LowercaseTagger(object):
     """
@@ -17,7 +17,7 @@ class LowercaseTagger(object):
 class PosLemmaTagger(object):
 
     def __init__(self, language=None):
-        import spacy
+
 
         self.language = language or languages.ENG
 

@@ -3,6 +3,7 @@ Response selection methods determines which response should be used in
 the event that multiple responses are generated within a logic adapter.
 """
 import logging
+from random import choice
 
 
 def get_most_frequent_response(input_statement, response_list, storage=None):
@@ -78,7 +79,6 @@ def get_random_response(input_statement, response_list, storage=None):
     :return: Choose a random response from the selection.
     :rtype: Statement
     """
-    from random import choice
     logger = logging.getLogger(__name__)
     logger.info('Selecting a response from list of {} options.'.format(
         len(response_list)

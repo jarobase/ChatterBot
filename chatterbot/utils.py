@@ -1,3 +1,12 @@
+
+
+import importlib
+import time
+import sys
+
+from chatterbot.adapters import Adapter
+
+
 """
 ChatterBot utility functions
 """
@@ -8,7 +17,7 @@ def import_module(dotted_path):
     Imports the specified module based on the
     dot notated import path for the module.
     """
-    import importlib
+
 
     module_parts = dotted_path.split('.')
     module_path = '.'.join(module_parts[:-1])
@@ -46,7 +55,7 @@ def validate_adapter_class(validate_class, adapter_class):
 
     :raises: Adapter.InvalidAdapterTypeException
     """
-    from chatterbot.adapters import Adapter
+
 
     # If a dictionary was passed in, check if it has an import_path attribute
     if isinstance(validate_class, dict):
@@ -81,7 +90,7 @@ def get_response_time(chatbot, statement='Hello'):
     :returns: The response time in seconds.
     :rtype: float
     """
-    import time
+
 
     start_time = time.time()
 
@@ -108,7 +117,7 @@ def print_progress_bar(description, iteration_counter, total_items, progress_bar
     :returns: void
     :rtype: void
     """
-    import sys
+
 
     percent = float(iteration_counter) / total_items
     hashes = '#' * int(round(percent * progress_bar_length))
